@@ -1,6 +1,7 @@
 chrome.webNavigation.onCompleted.addListener(function(details) {
         chrome.tabs.executeScript({file: 'sidebar_tabs.js'});
         chrome.tabs.executeScript({file: "./patches/branding.js"});
+        chrome.tabs.executeScript({file: "topbar.js"});
     }, {url: [
         {urlMatches : 'http://usis.bracu.ac.bd/'}
         ]}
