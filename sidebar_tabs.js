@@ -5,6 +5,8 @@ Author: Rafi Uddin Sadik
 
 //Including Font Awesome 5
 
+jadu();
+
 function jadu(){
     var head = document.getElementsByTagName("head");
     var fontAwScript = document.createElement("script");
@@ -119,8 +121,5 @@ function jadu(){
         icon.setAttributeNode(cls);
         icon.style.color = "white";
         return icon;
-
-
-
-
-    }}
+    }
+}
