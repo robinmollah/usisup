@@ -1,0 +1,31 @@
+@keyframes bgAnim {
+    from {
+        background-color: lightsteelblue;
+    }
+    to {
+        background-color: navy;
+    }
+}
+
+.brandText {
+    color: white;
+    font-family: cursive;
+    font-weight: 900;
+    font-size: 30px;
+    background-color: steelblue;
+    animation-name: bgAnim;
+    animation-duration: 0.4s;
+    animation-iteration-count: infinite;
+
+    width: 246px;
+    text-align: center;
+    position: fixed;
+    left: 0px;
+    bottom: 2em;
+    padding: 5px 0;
+}
+
+.initial {
+    text-shadow: 0 0 2px #FF0000;
+    font-size: 13px;
+}
