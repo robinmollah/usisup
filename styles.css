@@ -26,6 +26,19 @@
 }
 
 .initial {
-    text-shadow: 0 0 2px #FF0000;
+    text-shadow: 0 0 1px #FF0000;
     font-size: 13px;
+    position: relative;;
+}
+
+.initial:hover {
+    text-shadow: 0 0 3px #ff0000;
+    font-size: 16px;
+}
+
+.initialDialog {
+    font-size: 100px;
+    position: absolute;
+    color: steelblue;
+    background-color: red;
 }

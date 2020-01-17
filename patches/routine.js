@@ -1,21 +1,18 @@
 traverseRoutine();
+addEventHandler();
 
 function traverseRoutine(){
-    console.log("traversing");
     var $routineTable = $(".simple-table-css").children("tbody");
     var rows = $routineTable.children();
     var cursor = rows.first();
-    console.log("rows length: "  + rows.length);
     for(let i = 0; i < rows.length; i++){
-        console.log("Row " + i);
         var arrayOfDatas = cursor[0].children;
         for(let j = 0; j < arrayOfDatas.length; j++){
             // swap wednesday tuesday
+            modifyInitials(arrayOfDatas[j]);
             if(j == 4){
-                console.log("Swapping");
                 swap(arrayOfDatas[j-1], arrayOfDatas[j]);
             }
-            modifyInitials(arrayOfDatas[j]);
         }
         cursor=cursor.next();
     }
@@ -45,4 +42,31 @@ function modifyInitials(theColRow){
 
 function matchInitial(text){
     return text.match(/\s(\w{3})\s/i);
+}
+
+function addEventHandler(){
+    let initials = document.getElementsByClassName("initial");
+    for(let initial of initials){
+        initial.addEventListener("click", function(){
+            let initialText = this.getAttribute("initial");
+            getTeachersInfo(initialText);
+        });
+    }
+}
+
+function getTeachersInfo(initial){
+    $.ajax({
+        url:'https://bracu-bot.appspot.com/teacher/initial',
+        type:"POST",
+        data: JSON.stringify({initial: initial}),
+        contentType:"application/json; charset=utf-8",
+        dataType:"json",
+        success: function(data){
+            console.log("Successful " + JSON.stringify(data));
+        }
+    });
+}
+
+function showDialog(teacher){
+    console.log($("<div>").load("teachersInfo.html"));
 }
