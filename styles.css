@@ -37,8 +37,21 @@
 }
 
 .initialDialog {
-    font-size: 100px;
+    bottom: 50px;
+    left: 100px;
+    font-size: 17px;
     position: absolute;
-    color: steelblue;
-    background-color: red;
+    color: navy;
+    background-color: lightsteelblue;
+    z-index: 2;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+}
+
+#dragzone {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
 }

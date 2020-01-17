@@ -1,5 +1,6 @@
 traverseRoutine();
 addEventHandler();
+showDialog();
 
 function traverseRoutine(){
     var $routineTable = $(".simple-table-css").children("tbody");
@@ -54,6 +55,20 @@ function addEventHandler(){
     }
 }
 
+function teachersTemplate(teacher) {
+    // TODO check which properties the teacher has and show accordingly.
+    let template = $("<div></div>");
+    let name = $("<span class=\"teacherName\">" + teacher.name + "</span>");
+    template.append(name);
+    let initial = $("<span class=\"teacherInitial\"><b>" + teacher.initial + "</b></span>");
+    template.append(initial);
+    template.append("<br/>");
+    // TODO email might not available, FIXIT
+    let mail = $("<a href='mailto:"+ teacher.mail_id +"' class=\"teacherInitial\">Send Email</a>");
+    template.append(mail);
+    return template;
+}
+
 function getTeachersInfo(initial){
     $.ajax({
         url:'https://bracu-bot.appspot.com/teacher/initial',
@@ -63,10 +78,17 @@ function getTeachersInfo(initial){
         dataType:"json",
         success: function(data){
             console.log("Successful " + JSON.stringify(data));
+            $('#mag-content').html(teachersTemplate(data));
         }
     });
 }
 
 function showDialog(teacher){
-    console.log($("<div>").load("teachersInfo.html"));
+    let dialog = $("<div class=\"initialDialog\" id='draggable'></div>");
+    let dragger = $("<div id='dragzone'>Click here to move</div>");
+    let content = $("<div id='mag-content'>The Magicians</div>");
+    dialog.append(dragger);
+    dialog.append(content);
+
+    $("body").append(dialog);
 }
