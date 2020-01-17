@@ -5,9 +5,10 @@ Author: Rafi Uddin Sadik
 
 //Including Font Awesome 5
 
-jadu();
+init();
 
-function jadu(){
+function init(){
+    //Including Font Awesome 5
     var head = document.getElementsByTagName("head");
     var fontAwScript = document.createElement("script");
     var src = document.createAttribute("src");
@@ -16,110 +17,68 @@ function jadu(){
     head[0].appendChild(fontAwScript);
 
 
-    var sideBarComponents = document.getElementsByClassName("autoload");
+    var sideBarComponents = document.querySelectorAll('[onclick="highlight(this)"]');
     var mainDiv = document.getElementById("accordion1");
 
-//hiding all components of old side-menu
+    //hiding all components of old side-menu
     $("#accordion1").children().hide();
 
-//For SideBar Header
-//var sidebarHeader = document.createElement("h1");
-//sidebarHeader.innerText = "Menu Bar";
-//sidebarHeader.style.color = "Navy";
-//sidebarHeader.style.paddingLeft = "65px";
-//mainDiv.appendChild(sidebarHeader);
+    var visible = [
+        "My Profile",
+        "Registration Form",
+        "Student Grade Sheet",
+        "Show Class Schedule",
+        "Advising Panel",
+        "Seat Status",
+        "Class Schedule",
+        "Advised Course(s)",
+        "Bank Payment Slip",
+    ];
 
+    var icons = [
+        "fas fa-user",
+        "far fa-file-alt",
+        "far fa-file-archive",
+        "far fa-clock",
+        "fas fa-chalkboard-teacher",
+        "fas fa-users",
+        "fas fa-user-clock",
+        "fas fa-book-reader",
+        "fas fa-money-bill-alt",
+    ];
 
-//setting styles for all anchor tags
-    for(var i = 3; i < sideBarComponents.length; i++){
-        sideBarComponents[i].style.color = "White";
-        sideBarComponents[i].style.paddingLeft = "15px";
+    for(var i = 0; i < visible.length; i++){
+        var newMenuBar = getMenuBlock();
+        var icon = getIcon(icons[i]);
+        newMenuBar.appendChild(icon);
+        newMenuBar.appendChild(getTargetSideBar(visible[i], sideBarComponents));
+        mainDiv.appendChild(newMenuBar);
     }
+}
 
-    var newMenuBar = getMenuBlock();
-    var icon = getIcon("fas fa-user");
-    newMenuBar.appendChild(icon);
-    newMenuBar.appendChild(sideBarComponents[3]);
-    mainDiv.appendChild(newMenuBar);
+function getMenuBlock(){
+    var menuBlock = document.createElement("div");
+    menuBlock.style.backgroundColor = "#496bd3";
+    menuBlock.style.padding = "7px";
+    menuBlock.style.border = "3px solid #3a3ac7";
+    return menuBlock;
+}
 
-//MyProfile
-    newMenuBar = getMenuBlock();
-    icon = getIcon("fas fa-user");
-    newMenuBar.appendChild(icon);
-    newMenuBar.appendChild(sideBarComponents[3]);
-    mainDiv.appendChild(newMenuBar);
+function getIcon(className){
+    var icon = document.createElement("i");
+    var cls = document.createAttribute("class");
+    cls.value = className;
+    icon.setAttributeNode(cls);
+    icon.style.color = "white";
+    return icon;
+}
 
-//Registration Form
-    newMenuBar = getMenuBlock();
-    icon = getIcon("far fa-file-alt");
-    newMenuBar.appendChild(icon);
-    newMenuBar.appendChild(sideBarComponents[3]);
-    mainDiv.appendChild(newMenuBar);
-
-//Grade Sheet
-    newMenuBar = getMenuBlock();
-    icon = getIcon("far fa-file-archive");
-    newMenuBar.appendChild(icon);
-    newMenuBar.appendChild(sideBarComponents[4]);
-    mainDiv.appendChild(newMenuBar);
-
-//Show Class Schedule
-    newMenuBar = getMenuBlock();
-    icon = getIcon("far fa-clock");
-    newMenuBar.appendChild(icon);
-    newMenuBar.appendChild(sideBarComponents[4]);
-    mainDiv.appendChild(newMenuBar);
-
-//Advising Panel
-    newMenuBar = getMenuBlock();
-    icon = getIcon("fas fa-chalkboard-teacher");
-    newMenuBar.appendChild(icon);
-    newMenuBar.appendChild(sideBarComponents[8]);
-    mainDiv.appendChild(newMenuBar);
-
-//Seat status
-    newMenuBar = getMenuBlock();
-    icon = getIcon("fas fa-users");
-    newMenuBar.appendChild(icon);
-    newMenuBar.appendChild(sideBarComponents[8]);
-    mainDiv.appendChild(newMenuBar);
-
-//Class Schedule
-    newMenuBar = getMenuBlock();
-    icon = getIcon("fas fa-user-clock");
-    newMenuBar.appendChild(icon);
-    newMenuBar.appendChild(sideBarComponents[8]);
-    mainDiv.appendChild(newMenuBar);
-
-//Advised Courses
-    newMenuBar = getMenuBlock();
-    icon = getIcon("fas fa-book-reader");
-    newMenuBar.appendChild(icon);
-    newMenuBar.appendChild(sideBarComponents[8]);
-    mainDiv.appendChild(newMenuBar);
-
-//Bank Payment
-    newMenuBar = getMenuBlock();
-    icon = getIcon("fas fa-money-bill-alt");
-    newMenuBar.appendChild(icon);
-    newMenuBar.appendChild(sideBarComponents[10]);
-    mainDiv.appendChild(newMenuBar);
-
-
-    function getMenuBlock(){
-        var menuBlock = document.createElement("div");
-        menuBlock.style.backgroundColor = "#496bd3";
-        menuBlock.style.padding = "7px";
-        menuBlock.style.border = "3px solid #3a3ac7";
-        return menuBlock;
-    }
-
-    function getIcon(className){
-        var icon = document.createElement("i");
-        var cls = document.createAttribute("class");
-        cls.value = className;
-        icon.setAttributeNode(cls);
-        icon.style.color = "white";
-        return icon;
+function getTargetSideBar(name, sideBarComponents){
+    for(var j = 0; j < sideBarComponents.length; j++){
+        if(sideBarComponents[j].innerHTML === name){
+            sideBarComponents[j].style.color = "White";
+            sideBarComponents[j].style.paddingLeft = "15px";
+            return sideBarComponents[j];
+        }
     }
 }
