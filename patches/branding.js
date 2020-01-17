@@ -1,1 +1,1 @@
-$("<div class='copyright-text brandText'>Modified by The Magicians</div>").insertBefore(".copyright-text");
+$("<div class='brandText'>Modified by The Magicians</div>").insertBefore(".copyright-text");

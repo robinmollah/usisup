@@ -1,28 +1,3 @@
-$(document).ajaxComplete(function() {
-    console.log("Hello I am getting executed");
-    // changeHeaderStyle();
-    traverseRoutine();
-});
-
-$(document).ajaxStart(function() {
-    console.log("Hello I am getting started");
-    // changeHeaderStyle();
-    traverseRoutine();
-});
-
-$(document).ajaxStop(function() {
-    console.log("Hello I am getting succeeded");
-    // changeHeaderStyle();
-    traverseRoutine();
-});
-
-
-$(document).ajaxSuccess(function() {
-    console.log("Hello I am getting succeeded");
-    // changeHeaderStyle();
-    traverseRoutine();
-});
-
 traverseRoutine();
 
 function traverseRoutine(){
@@ -40,6 +15,7 @@ function traverseRoutine(){
                 console.log("Swapping");
                 swap(arrayOfDatas[j-1], arrayOfDatas[j]);
             }
+            modifyInitials(arrayOfDatas[j]);
         }
         cursor=cursor.next();
     }
@@ -49,4 +25,24 @@ function traverseRoutine(){
         obj1.innerHTML = obj2.innerHTML;
         obj2.innerHTML = tmp;
     }
+}
+
+function modifyInitials(theColRow){
+    let tmp = theColRow.innerHTML;
+    let match = matchInitial(tmp);
+    if(!match) return;
+    let initial = match[1];
+    let back = tmp.length - match.index - 5;
+    let beforeMatch = tmp.slice(0, match.index);
+    let start = " <span class='initial' initial='" + initial + "'> ";
+
+    let end = " </span> ";
+    let afterMatch = tmp.slice(-back);
+
+    let compiled = beforeMatch + start + initial + end + afterMatch;
+    theColRow.innerHTML=compiled;
+}
+
+function matchInitial(text){
+    return text.match(/\s(\w{3})\s/i);
 }
