@@ -58,14 +58,26 @@ function addEventHandler(){
 function teachersTemplate(teacher) {
     // TODO check which properties the teacher has and show accordingly.
     let template = $("<div></div>");
-    let name = $("<span class=\"teacherName\">" + teacher.name + "</span>");
+    if(teacher.status === "failed"){
+        let mail = $("<span style='color: red; padding: 6px'><b>No Information Found<b></span>");
+        template.append(mail);
+        return template;
+    }
+    let name = $("<span class=\"teacherName\">" + teacher.name + "</span><br>");
     template.append(name);
-    let initial = $("<span class=\"teacherInitial\"><b>" + teacher.initial + "</b></span>");
+    let initial = $("<span class=\"teacherInitial\"><b>" + teacher.initial + "</b></span><br>");
     template.append(initial);
-    template.append("<br/>");
-    // TODO email might not available, FIXIT
-    let mail = $("<a href='mailto:"+ teacher.mail_id +"' class=\"teacherInitial\">Send Email</a>");
-    template.append(mail);
+    if(teacher.room_number){
+        let mail = $("<span>Room: UB"+teacher.room_number+"</span><br>");
+        template.append(mail);
+    }
+    if(teacher.mail_id){
+        let mail = $("<a href='mailto:"+ teacher.mail_id +"' class=\"teacherInitial\" target=\"_blank\">Send Email</a>");
+        template.append(mail);
+    }else{
+        let errorMail = $("<small style='color:grey;'>Mail ID Unavailable<small>");
+        template.append(errorMail);
+    }
     return template;
 }
 
@@ -89,6 +101,6 @@ function showDialog(teacher){
     let content = $("<div id='mag-content'>The Magicians</div>");
     dialog.append(dragger);
     dialog.append(content);
-
     $("body").append(dialog);
 }
+
