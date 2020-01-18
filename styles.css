@@ -37,13 +37,11 @@
 }
 
 .initialDialog {
-    bottom: 50px;
-    left: 100px;
     font-size: 17px;
     position: absolute;
     color: navy;
     background-color: lightsteelblue;
-    z-index: 2;
+    z-index: 9;
     border: 1px solid #d3d3d3;
     text-align: center;
 }

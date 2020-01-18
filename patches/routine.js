@@ -72,7 +72,7 @@ function teachersTemplate(teacher) {
         template.append(mail);
     }
     if(teacher.mail_id){
-        let mail = $("<a href='mailto:"+ teacher.mail_id +"' class=\"teacherInitial\" target=\"_blank\">Send Email</a>");
+        let mail = $("<span>Email: "+teacher.mail_id+"</span><br><a href='mailto:"+ teacher.mail_id +"' class=\"teacherInitial\" target=\"_blank\">Send Email</a>");
         template.append(mail);
     }else{
         let errorMail = $("<small style='color:grey;'>Mail ID Unavailable<small>");
@@ -97,10 +97,52 @@ function getTeachersInfo(initial){
 
 function showDialog(teacher){
     let dialog = $("<div class=\"initialDialog\" id='draggable'></div>");
-    let dragger = $("<div id='dragzone'>Click here to move</div>");
-    let content = $("<div id='mag-content'>The Magicians</div>");
+    let dragger = $("<div id='dragzone'>Magician's Portal<br><small>Click here to move</small></div>");
+    let content = $("<div id='mag-content' style='padding: 10px'>Click Initials For Details</div>");
     dialog.append(dragger);
     dialog.append(content);
-    $("body").append(dialog);
+    $('.ui-layout-center').prepend(dialog);
+    makeDraggable(document.getElementById("draggable"));
+
 }
 
+function makeDraggable(elm) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    if (document.getElementById(elm.id + "dragzone")) {
+        /* if present, the header is where you move the DIV from:*/
+        document.getElementById(elm.id + "dragzone").onmousedown = dragMouseDown;
+    } else {
+        /* otherwise, move the DIV from anywhere inside the DIV:*/
+        elm.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // get the mouse cursor position at startup:
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        // call a function whenever the cursor moves:
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // calculate the new cursor position:
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        // set the element's new position:
+        elm.style.top = (elm.offsetTop - pos2) + "px";
+        elm.style.left = (elm.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+        /* stop moving when mouse button is released:*/
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
