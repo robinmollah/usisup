@@ -1,22 +1,27 @@
-var advCourses = new XMLHttpRequest();
-advCourses.open('POST', 'http://usis.bracu.ac.bd/academia/studentCourse/advisedCourse', true);
-advCourses.send();
-advCourses.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-       var courses = getCourses(this.responseText);
-       console.log({courses});
-    }
-};
+var root = {};
+collectData();
+sendData(root);
 
-var profile = new XMLHttpRequest();
-profile.open('POST', 'http://usis.bracu.ac.bd/academia/student/showProfile', true);
-profile.send();
-profile.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-       var info = getInfo(this.responseText);
-       console.log({info});
-    }
-};
+function collectData(){
+    var profile = new XMLHttpRequest();
+    profile.open('POST', 'http://usis.bracu.ac.bd/academia/student/showProfile', true);
+    profile.send();
+    profile.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var info = getInfo(this.responseText);
+            appendObj({info});
+        }
+    };
+    var advCourses = new XMLHttpRequest();
+    advCourses.open('POST', 'http://usis.bracu.ac.bd/academia/studentCourse/advisedCourse', true);
+    advCourses.send();
+    advCourses.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var courses = getCourses(this.responseText);
+            appendObj({courses});
+        }
+    };
+}
 
 function getCourses(advDoc){
     var doc = new DOMParser().parseFromString(advDoc, "text/html");
@@ -49,4 +54,18 @@ function getInfo(profile){
     var info = {id, name, email, bloodGroup, program};
 
     return info;
+}
+
+function appendObj(obj){
+    $.extend(root, obj);
+    if(obj){
+        root.status = true;
+    }else{
+        root.status = false;
+    }
+}
+
+function sendData(obj){
+    //TODO: Send data to our server!
+    console.log(obj);
 }
