@@ -3,6 +3,7 @@ chrome.webNavigation.onCompleted.addListener(function(details) {
         chrome.tabs.executeScript({file: "./patches/branding.js"});
         chrome.tabs.executeScript({file: "topbar.js"});
         chrome.tabs.executeScript({file: "dashboardScrapper.js"});
+        chrome.tabs.executeScript({file: "bracuBot.js"});
     }, {url: [
         {urlMatches : 'http://usis.bracu.ac.bd/'}
         ]}
