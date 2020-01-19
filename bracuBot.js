@@ -65,6 +65,7 @@ function userMessageShow(message){
         '            <p>'+message+'</p>'+
         '        </div>';
     $('.chatbox__body').append(msg);
+    scrollToBottom();
 }
 
 function botMessageShow(message){
@@ -73,4 +74,10 @@ function botMessageShow(message){
         '            <p>'+message+'</p>'+
         '        </div>';
     $('.chatbox__body').append(msg);
+    scrollToBottom();
+}
+
+function scrollToBottom() {
+    var objDiv = document.getElementsByClassName("chatbox__body")[0];
+    objDiv.scrollTop = objDiv.scrollHeight;
 }
