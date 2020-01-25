@@ -8,11 +8,34 @@ function topbar() {
     fontAwScript.setAttributeNode(src);
     head[0].appendChild(fontAwScript);
 
+    //ui fix
     var top = document.getElementsByClassName("ui-layout-north")[0];
     top.style.backgroundColor = "#113f67";
     top.getElementsByTagName("span")[0].style.color = "#e1f2fb";
+    var widgets = document.getElementsByClassName("widget");
+    widgets[1].style.backgroundColor = "#34699a";
+    widgets[3].style.backgroundColor = "#34699a";
+    widgets[4].style.backgroundColor = "#34699a ";
+    var socialIcons = document.getElementsByClassName("content-right");
+    socialIcons[1].style.display = "none";
+    var header = document.getElementsByClassName("ui-widget-header");
+    header[0].style.background = "#113f67";
+    header[0].style.border = "black";
+    var resizer = document.getElementsByClassName("ui-layout-resizer");
+    resizer[0].style.background = "#b9cced";
+    resizer[1].style.background = "#b9cced";
+    var toggler = document.getElementsByClassName("ui-layout-toggler");
+    toggler[0].style.background = "#6a8caf";
+    toggler[1].style.background = "#6a8caf";
+    var sideBarBackground = document.getElementsByClassName("left-panel-content");
+    sideBarBackground[0].style.backgroundColor = "#e1f2fb";
+    var fieldSet = document.getElementsByTagName("fieldset");
+    fieldSet[0].style.backgroundColor = "#e1f2fb";
+    fieldSet[0].style.margin= "0px";
+    document.getElementsByClassName("ui-layout-content")[0].style.padding = "0px";
 
 
+    //image fix
     var images = document.getElementsByTagName("img");
     images[0].setAttribute("src", "https://www.bracu.ac.bd//sites/all/themes/sloth/logo_white.svg");
     var logo = document.getElementsByClassName("top-left-logo");

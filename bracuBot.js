@@ -3,7 +3,7 @@ init();
 function init(){
     var chatHtml = '<div class="chatbox chatbox--tray chatbox--empty">'+
         '    <div class="chatbox__title">'+
-        '        <h5><a style="color: white" href="#">BRACU Bot</a></h5>'+
+        '        <h5><a style="color: white" href="#"><b>BRACU Bot</b></a></h5>'+
         '        <button class="chatbox__title__tray">'+
         '            <span></span>'+
         '        </button>'+
