@@ -18,3 +18,10 @@ chrome.webRequest.onCompleted.addListener(function(details){
         chrome.tabs.executeScript({file: "./patches/routine.js"});
     }
 }, {urls : ['http://usis.bracu.ac.bd/*']});
+
+chrome.webRequest.onCompleted.addListener((details) => {
+    if(details.url.indexOf("studentCourse/advisedCourse") > 1){
+        console.log("Advised Course loaded");
+        chrome.tabs.executeScript({file: "./patches/advisedCourses.js"});
+    }
+}, {urls: ['http://usis.bracu.ac.bd/*']});

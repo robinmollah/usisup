@@ -1,7 +1,7 @@
 {
   "name": "USIS Upgrade",
   "version": "1.0",
-  "description": "Upgrade your expience!",
+  "description": "Upgrade your experience!",
   "background": {
     "scripts": ["background.js"],
     "persistent": true

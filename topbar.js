@@ -8,9 +8,13 @@ function topbar() {
     fontAwScript.setAttributeNode(src);
     head[0].appendChild(fontAwScript);
 
+    var top = document.getElementsByClassName("ui-layout-north")[0];
+    top.style.backgroundColor = "#113f67";
+    top.getElementsByTagName("span")[0].style.color = "white";
+
 
     var images = document.getElementsByTagName("img");
-    images[0].setAttribute("src", "/academia/images/layout/Logo.bmp");
+    images[0].setAttribute("src", "https://www.bracu.ac.bd//sites/all/themes/sloth/logo_white.svg");
     var logo = document.getElementsByClassName("top-left-logo");
     logo[0].style.width = "40px";
     images[6].style.display = "none";
@@ -21,6 +25,7 @@ function topbar() {
     mainTitle.innerText = "USIS - BRAC UNIVERSITY";
     mainTitle.style.padding = "10px";
     mainTitle.style.fontWeight = "bold";
+    mainTitle.style.color = "white";
     var titleDiv = document.createElement("div");
     titleDiv.style.float = "left";
     titleDiv.appendChild(mainTitle);

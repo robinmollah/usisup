@@ -58,9 +58,11 @@ function init(){
 
 function getMenuBlock(){
     var menuBlock = document.createElement("div");
-    menuBlock.style.backgroundColor = "#496bd3";
+    menuBlock.style.backgroundColor = "#283593";
     menuBlock.style.padding = "7px";
-    menuBlock.style.border = "3px solid #3a3ac7";
+    menuBlock.style.border = "3px solid #000000";
+    menuBlock.style.margin = "3px";
+    menuBlock.style.borderRadius = "5   px";
     return menuBlock;
 }
 
