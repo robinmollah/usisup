@@ -10,7 +10,7 @@ function topbar() {
 
     var top = document.getElementsByClassName("ui-layout-north")[0];
     top.style.backgroundColor = "#113f67";
-    top.getElementsByTagName("span")[0].style.color = "white";
+    top.getElementsByTagName("span")[0].style.color = "#e1f2fb";
 
 
     var images = document.getElementsByTagName("img");
@@ -25,7 +25,7 @@ function topbar() {
     mainTitle.innerText = "USIS - BRAC UNIVERSITY";
     mainTitle.style.padding = "10px";
     mainTitle.style.fontWeight = "bold";
-    mainTitle.style.color = "white";
+    mainTitle.style.color = "#e1f2fb";
     var titleDiv = document.createElement("div");
     titleDiv.style.float = "left";
     titleDiv.appendChild(mainTitle);

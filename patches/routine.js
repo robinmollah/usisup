@@ -98,7 +98,7 @@ function getTeachersInfo(initial){
 function showDialog(teacher){
     let dialog = $("<div class=\"initialDialog\" id='draggable'></div>");
     let dragger = $("<div id='dragzone'>Magician's Portal<br><small>Click here to move</small></div>");
-    let content = $("<div id='mag-content' style='padding: 10px'>Click Initials For Details</div>");
+    let content = $("<div id='mag-content'>Click Initials For Details</div>");
     dialog.append(dragger);
     dialog.append(content);
     $('.ui-layout-center').prepend(dialog);

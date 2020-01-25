@@ -50,6 +50,21 @@
     padding: 10px;
     cursor: move;
     z-index: 10;
-    background-color: #2196F3;
+    background-color: #113f67;
     color: #fff;
+}
+#mag-content{
+    padding: 10px;
+    background-color: #34699a;
+    color: white;
+}
+
+.sidebarTabs {
+    transition: transform .2s;
+}
+
+.sidebarTabs:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.1);
 }

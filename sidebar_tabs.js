@@ -54,13 +54,23 @@ function init(){
         newMenuBar.appendChild(getTargetSideBar(visible[i], sideBarComponents));
         mainDiv.appendChild(newMenuBar);
     }
+
+    $('.sidebarTabs').hover(function(){
+        $(this).css("background-color", "#408ab4");
+        $(this).css("cursor", "pointer");
+        $(this).css("transform", "scale(0.95)");
+    }, function(){
+        $(this).css("background-color", "#34699a");
+        $(this).css("transform", "scale(1.0)");
+    });
 }
 
 function getMenuBlock(){
     var menuBlock = document.createElement("div");
-    menuBlock.style.backgroundColor = "#283593";
+    menuBlock.setAttribute("class", "sidebarTabs")
+    menuBlock.style.backgroundColor = "#34699a";
     menuBlock.style.padding = "7px";
-    menuBlock.style.border = "3px solid #000000";
+    menuBlock.style.border = "3px solid #113f67";
     menuBlock.style.margin = "3px";
     menuBlock.style.borderRadius = "5   px";
     return menuBlock;
