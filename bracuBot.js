@@ -3,13 +3,13 @@ init();
 function init(){
     var chatHtml = '<div class="chatbox chatbox--tray chatbox--empty">'+
         '    <div class="chatbox__title">'+
-        '        <h5><a style="color: white" href="#"><b>BRACU Bot</b></a></h5>'+
+        '        <h5><a style="color: white; font-size: 15px" href="#"><b>BRACU Bot</b></a></h5>'+
         '        <button class="chatbox__title__tray">'+
         '            <span></span>'+
         '        </button>'+
         '    </div>'+
         '    <div class="chatbox__body">'+
-        '        <div class="chatbox__body__message chatbox__body__message--left pb-3">'+
+        '        <div class="chatbox__body__message chatbox__body__message--left pb-3" style="padding-top: 10px">'+
         '            <img style="border: 1px solid" src="http://iamsadik.com/bracu_bot_logo.jpg" alt="Picture">'+
         '            <p>Hi! What\'s your Query?</p>'+
         '        </div>'+
@@ -60,7 +60,7 @@ function sendMessage(message) {
 }
 
 function userMessageShow(message){
-    var msg = '<div class="chatbox__body__message chatbox__body__message--right pb-3">'+
+    var msg = '<div class="chatbox__body__message chatbox__body__message--right pb-3" style="padding-top: 12px">'+
         '            <img style="border: 1px solid" src="http://iamsadik.com/usis_profile.png" alt="Picture">'+
         '            <p>'+message+'</p>'+
         '        </div>';
@@ -69,7 +69,7 @@ function userMessageShow(message){
 }
 
 function botMessageShow(message){
-    var msg = '<div class="chatbox__body__message chatbox__body__message--left pb-3">'+
+    var msg = '<div class="chatbox__body__message chatbox__body__message--left pb-3" style="padding-top: 12px">'+
         '            <img style="border: 1px solid" src="http://iamsadik.com/bracu_bot_logo.jpg" alt="Picture">'+
         '            <p>'+message+'</p>'+
         '        </div>';

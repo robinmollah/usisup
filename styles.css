@@ -49,7 +49,6 @@
 #dragzone {
     padding: 10px;
     cursor: move;
-    z-index: 10;
     background-color: #113f67;
     color: #fff;
 }
@@ -67,4 +66,23 @@
     -ms-transform: scale(1.5); /* IE 9 */
     -webkit-transform: scale(1.5); /* Safari 3-8 */
     transform: scale(1.1);
+}
+
+.topButton{
+    background-color: #e1f2fb; /* Green */
+    border-radius: 3px;
+    color: black;
+    padding: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.topButton:hover{
+    background-color: #e7e7e7;
+    text-decoration: none;
 }

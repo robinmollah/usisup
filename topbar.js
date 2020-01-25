@@ -12,6 +12,7 @@ function topbar() {
     var top = document.getElementsByClassName("ui-layout-north")[0];
     top.style.backgroundColor = "#113f67";
     top.getElementsByTagName("span")[0].style.color = "#e1f2fb";
+    top.getElementsByTagName("span")[0].style.paddingTop = "2px";
     var widgets = document.getElementsByClassName("widget");
     widgets[1].style.backgroundColor = "#34699a";
     widgets[3].style.backgroundColor = "#34699a";
@@ -62,12 +63,13 @@ function topbar() {
     var buttonUL = document.getElementsByTagName("ul")[0];
     $(buttonUL).empty();
 
-    var homeButton = makeButtonWithList("/academia/dashBoard/show", "btn btn-success", "Home", "fa fa-home");
+    var homeButton = makeButtonWithList("/academia/dashBoard/show", "topButton", "Home", "fa fa-home");
     buttonUL.appendChild(homeButton);
-    var changePasswordButton = makeButtonWithList("http://usis.bracu.ac.bd/academia/dashBoard/show#/academia/systemUser/changePassword", "btn btn-warning", "Change Password", "fa fa-key");
-    changePasswordButton.style.width = "126px";
+    var changePasswordButton = makeButtonWithList("http://usis.bracu.ac.bd/academia/dashBoard/show#/academia/systemUser/changePassword", "topButton", "Change Password", "fa fa-key");
+    changePasswordButton.style.width = "124px";
     buttonUL.appendChild(changePasswordButton);
-    var logoutButton = makeButtonWithList("/academia/logout/index", "btn btn-danger", "Logout", "fas fa-door-open");
+    var logoutButton = makeButtonWithList("/academia/logout/index", "topButton", "Logout", "fas fa-door-open");
+    logoutButton.style.width = "67px";
     buttonUL.appendChild(logoutButton);
 
 }
@@ -81,13 +83,13 @@ function makeButtonWithList(href, className, title, iconClass) {
 
     var icon = document.createElement("i");
     icon.setAttribute("class", iconClass);
-    icon.style.color = "white";
+    icon.style.color = "black";
     icon.style.paddingRight = "3px";
     button.appendChild(icon);
     button.appendChild(titleSpan);
 
     var list = document.createElement("li");
-    list.style.width = "67px";
+    list.style.width = "60px";
     list.appendChild(button);
     return list;
 }
