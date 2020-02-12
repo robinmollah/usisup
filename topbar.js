@@ -16,7 +16,7 @@ function topbar() {
     var widgets = document.getElementsByClassName("widget");
     widgets[1].style.backgroundColor = "#34699a";
     widgets[3].style.backgroundColor = "#34699a";
-    widgets[4].style.backgroundColor = "#34699a ";
+    widgets[4] && (widgets[4].style.backgroundColor = "#34699a");
     var socialIcons = document.getElementsByClassName("content-right");
     socialIcons[1].style.display = "none";
     var header = document.getElementsByClassName("ui-widget-header");
