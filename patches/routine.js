@@ -37,8 +37,7 @@ function modifyInitials(theColRow){
     let end = " </span> ";
     let afterMatch = tmp.slice(-back);
 
-    let compiled = beforeMatch + start + initial + end + afterMatch;
-    theColRow.innerHTML=compiled;
+    theColRow.innerHTML=beforeMatch + start + initial + end + afterMatch;
 }
 
 function matchInitial(text){
@@ -107,7 +106,7 @@ function showDialog(teacher){
 }
 
 function makeDraggable(elm) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     if (document.getElementById(elm.id + "dragzone")) {
         /* if present, the header is where you move the DIV from:*/
         document.getElementById(elm.id + "dragzone").onmousedown = dragMouseDown;
