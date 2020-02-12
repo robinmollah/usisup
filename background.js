@@ -16,12 +16,9 @@ chrome.webNavigation.onDOMContentLoaded.addListener(function (details) {
 chrome.webRequest.onCompleted.addListener(function(details){
     if(details.url.indexOf("showStudentClassSchedule") > 10){
         chrome.tabs.executeScript({file: "./patches/routine.js"});
-    }
-}, {urls : ['http://usis.bracu.ac.bd/*']});
-
-chrome.webRequest.onCompleted.addListener((details) => {
-    if(details.url.indexOf("studentCourse/advisedCourse") > 1){
+    } else if(details.url.indexOf("studentCourse/advisedCourse") > 1){
         console.log("Advised Course loaded");
         chrome.tabs.executeScript({file: "./patches/advisedCourses.js"});
     }
-}, {urls: ['http://usis.bracu.ac.bd/*']});
+    chrome.tabs.executeScript({file: './patches/header.js'});
+}, {urls : ['http://usis.bracu.ac.bd/*']});
