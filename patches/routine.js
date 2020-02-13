@@ -67,12 +67,27 @@ function teachersTemplate(teacher) {
     let initial = $("<span class=\"teacherInitial\"><b>" + teacher.initial + "</b></span><br>");
     template.append(initial);
     if(teacher.room_number){
-        let mail = $("<span>Room: UB"+teacher.room_number+"</span><br>");
+        let mail = $("<span>UB"+teacher.room_number+"</span><br>");
+        mail.css("font-weight", "500");
         template.append(mail);
     }
     if(teacher.mail_id){
-        let mail = $("<span>Email: "+teacher.mail_id+"</span><br><a href='mailto:"+ teacher.mail_id +"' class=\"teacherInitial\" target=\"_blank\">Send Email</a>");
-        template.append(mail);
+        let mailTemplate = $("<div></div>");
+        mailTemplate.append($("<b>Email: </b>"));
+        let mail = $("<span class='email'>"+teacher.mail_id+"</span>");
+        let mailButton = $("<br><a href='mailto:"+ teacher.mail_id +"' class=\"teacherInitial\" target=\"_blank\">Send Email</a>");
+        mail.on("click", function(){
+            copyText($(this).text());
+
+            $(this).text("Email copied");
+            let obj = $(this);
+            setTimeout(function(){
+                obj.text(teacher.mail_id);
+            }, 400);
+        });
+        mailTemplate.append(mail);
+        mailTemplate.append(mailButton);
+        template.append(mailTemplate);
     }else{
         let errorMail = $("<small style='color:grey;'>Mail ID Unavailable<small>");
         template.append(errorMail);
@@ -144,4 +159,13 @@ function makeDraggable(elm) {
         document.onmouseup = null;
         document.onmousemove = null;
     }
+}
+
+function copyText(text){
+    const el = document.createElement('textarea');
+    el.value = text;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
 }
