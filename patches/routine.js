@@ -3,16 +3,17 @@ addEventHandler();
 showDialog();
 
 function traverseRoutine(){
-    var $routineTable = $(".simple-table-css").children("tbody");
-    var rows = $routineTable.children();
-    var cursor = rows.first();
+    console.log("Traversing routine");
+    let $routineTable = $(".simple-table-css").children("tbody");
+    let rows = $routineTable.children();
+    let cursor = rows.first();
     for(let i = 0; i < rows.length; i++){
         var arrayOfDatas = cursor[0].children;
         for(let j = 0; j < arrayOfDatas.length; j++){
             // swap wednesday tuesday
             modifyInitials(arrayOfDatas[j]);
             if(j == 4){
-                swap(arrayOfDatas[j-1], arrayOfDatas[j]);
+                // swap(arrayOfDatas[j-1], arrayOfDatas[j]);
             }
         }
         cursor=cursor.next();
