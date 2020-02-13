@@ -50,7 +50,7 @@ function topbar() {
 
     let mainTitle = document.createElement("h1");
     mainTitle.innerText = "USIS - BRAC UNIVERSITY";
-    mainTitle.style.padding = "10px";
+    mainTitle.style.padding = "0px";
     mainTitle.style.fontWeight = "bold";
     mainTitle.style.color = "#e1f2fb";
     let titleDiv = document.createElement("div");

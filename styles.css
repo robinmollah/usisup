@@ -55,8 +55,9 @@
 #dragzone {
     padding: 10px;
     cursor: move;
-    background-color: #113f67;
     color: #fff;
+    background: rgba(17, 63, 103,0.7);
+    position: absolute;
 }
 #mag-content{
     padding: 10px;
