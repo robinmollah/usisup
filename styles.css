@@ -1,9 +1,11 @@
 @keyframes bgAnim {
     from {
-        background-color: lightsteelblue;
+        text-shadow: 0px 0px 18px #FF0000;
+        color: gold;
     }
     to {
-        background-color: navy;
+        text-shadow: 0px 0px 2px #FF0000;
+        color: silver;
     }
 }
 
@@ -14,12 +16,12 @@
 
 .brandText {
     color: white;
-    font-family: cursive;
+    font-family: 'Ubuntu';
     font-weight: 900;
     font-size: 30px;
-    background-color: steelblue;
+    background-color: rgb(17, 63, 103);
     animation-name: bgAnim;
-    animation-duration: 0.4s;
+    animation-duration: 1.4s;
     animation-iteration-count: infinite;
 
     width: 246px;
