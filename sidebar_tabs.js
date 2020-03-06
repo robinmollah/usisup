@@ -59,9 +59,11 @@ function init(){
         $(this).css("background-color", "#408ab4");
         $(this).css("cursor", "pointer");
         $(this).css("transform", "scale(0.95)");
+        $(this).css("border-radius", "10px");
     }, function(){
         $(this).css("background-color", "#34699a");
         $(this).css("transform", "scale(1.0)");
+        $(this).css("border-radius", "0px");
     });
 }
 
