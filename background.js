@@ -4,6 +4,7 @@ chrome.webNavigation.onCompleted.addListener(function(details) {
         chrome.tabs.executeScript({file: "topbar.js"});
         chrome.tabs.executeScript({file: "dashboardScrapper.js"});
         chrome.tabs.executeScript({file: "bracuBot.js"});
+        chrome.tabs.executeScript({file: "loginPage.js"});
     }, {url: [
         {urlMatches : 'http://usis.bracu.ac.bd/'}
         ]}

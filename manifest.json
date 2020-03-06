@@ -11,7 +11,8 @@
       "matches" : ["http://*.bracu.ac.bd/*"],
       "css" : [
         "styles.css",
-        "bot.css"
+        "bot.css",
+        "loginStyles.scss"
       ],
       "run_at": "document_end",
       "js" : ["jquery.js","contentscript.js"]
